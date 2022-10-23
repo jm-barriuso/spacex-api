@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { simpleGet } from '../services/simpleGet';
+import {BrowserRouter,Routes, Route,Link} from "react-router-dom"
 
 
 const Launches = () => {
@@ -19,7 +20,7 @@ const Launches = () => {
     return (
         <div>
             <ul>
-                {launches?.map((lauch, index)=> <li key={index}> {lauch.mission_name} </li> ) }
+                {launches?.map((lauch, index)=> <Link to={`/${lauch.flight_number}`}><li key={index}> {lauch.mission_name} </li></Link> ) }
             </ul>
         </div>
     );
